@@ -12,7 +12,7 @@ class Employee:
     def __add__(self, other):
         if isinstance(other, int):
             return self.pay + other
-        if isinstance(other, self.__class__):
+        if isinstance(other, Employee):
             return self.pay + other.pay
         return self.pay
 
@@ -23,21 +23,19 @@ class Client:
         self.pay = pay
 
     def __add__(self, other):
-        if isinstance(other, int):
-            return self.pay + other
-        if isinstance(other, self.__class__):
-            return self.pay + other.pay
-        return self.pay
+        # if isinstance(other, int):
+        #     return self.pay + other
+        # if isinstance(other, self.__class__):
+        #     return self.pay + other.pay
+        return other
 
 
 class Developer(Employee):
-    def __init__(self, pay):
-        super().__init__(pay)
+    pass
 
 
 class Manager(Employee):
-    def __init__(self, pay):
-        super().__init__(pay)
+    pass
 
 
 # код для проверки
