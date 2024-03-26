@@ -3,12 +3,16 @@
 было число, а прибавлять можно было только числа или другие объекты дочерних классов Employee
 
 """
-
-
 class Employee:
-
     def __init__(self, pay):
         self.pay = pay
+
+    def __add__(self, other):
+        if isinstance(other, int):
+            return self.pay + other
+        if isinstance(other, self.__class__):
+            return self.pay + other.pay
+        return self.pay
 
 
 class Client:
@@ -16,13 +20,23 @@ class Client:
     def __init__(self, pay):
         self.pay = pay
 
+    def __add__(self, other):
+        if isinstance(other, int):
+            return self.pay + other
+        if isinstance(other, self.__class__):
+            return self.pay + other.pay
+        return self.pay
+
 
 class Developer(Employee):
-    pass
+    def __init__(self, pay):
+        super().__init__(pay)
 
 
 class Manager(Employee):
-    pass
+    def __init__(self, pay):
+        super().__init__(pay)
+
 
 # код для проверки
 users = [Employee(50000), Client(100000), Developer(50000), Manager(50000)]
@@ -33,3 +47,4 @@ for user in users:
 
 print(total_salary)
 # Вывод: 150000
+
