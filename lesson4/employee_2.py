@@ -10,11 +10,10 @@ class Employee:
         self.pay = pay
 
     def __add__(self, other):
-        if isinstance(other, int):
-            return self.pay + other
         if isinstance(other, Employee):
             return self.pay + other.pay
-        return self.pay
+        if isinstance(other, int):
+            return self.pay + other
 
 
 class Client:
@@ -25,7 +24,7 @@ class Client:
     def __add__(self, other):
         # if isinstance(other, int):
         #     return self.pay + other
-        # if isinstance(other, self.__class__):
+        # if isinstance(other, Employee):
         #     return self.pay + other.pay
         return other
 
