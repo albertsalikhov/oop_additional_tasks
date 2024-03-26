@@ -49,4 +49,3 @@ for user in users:
 
 print(total_salary)
 # Вывод: 150000
-
