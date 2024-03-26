@@ -3,6 +3,8 @@
 было число, а прибавлять можно было только числа или другие объекты дочерних классов Employee
 
 """
+
+
 class Employee:
     def __init__(self, pay):
         self.pay = pay
