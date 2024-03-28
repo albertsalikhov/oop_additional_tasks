@@ -23,11 +23,9 @@ class Client:
         self.pay = pay
 
     def __add__(self, other):
-        if isinstance(other, int):
-            return self.pay + other
         if isinstance(other, self.__class__):
             return self.pay + other.pay
-        return self.pay
+        return other
 
 
 class Developer(Employee):
